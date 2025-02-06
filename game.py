@@ -37,10 +37,21 @@ print(starting_area)
 # Ask the player for their decission
 decission = input("Do you wish to take the path? (yes/no)").lower()
 
+#loop for invalid input
+while decission not in ["yes", "no"]:
+    print("Invalid input. Please enter 'yes' or 'no'.")
+    
+    # Ask the player for their decission again
+    decission = input("Do you wish to take the path? (yes/no)").lower()
+
 # Responde based on the player's decission
 if decission == "yes":
     print(f"Brave choice, {player_name}! You step onto the path and venture forward.")
-elif decision == "no":
+
+    # Code to execute if the player chooses yes
+elif decission == "no":
     print(player_name + ", you decide to wait. Perhaps courage will find you later.") # Concatenation example
+
+    # Code to execute if the player chooses no
 else:
     print("Confused, you stand still, unsure of what to do.")
