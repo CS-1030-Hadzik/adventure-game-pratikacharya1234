@@ -8,31 +8,45 @@
 # to navigate through a mysterious forest.
 # """
 
-# Welcome message and introduction
-print("Welcome to the Adventure Game!")  
-print("Your journey begins here...")
 
 
-# Ask for Player Name
-player_name = input("What is your name? ")
-print("Hello, " + player_name + "!")
+inventory = []
+
+def welcome_player():
+    # Welcome message and introduction
+    print("Welcome to the Adventure Game!")  
+    print("Your journey begins here...")
 
 
-# Concatenate Strings to create a personalized message
-print("Welcome to the Adventure Game, " + player_name + "! Your journey begins here...")
+    # Ask for Player Name
+    player_name = input("What is your name? ")
+    print("Hello, " + player_name + "!")
 
-#Use an f-string to display the same message in a more readable format
-print(f"Welcome to the Adventure Game, {player_name}! Your journey begins here...")
 
-#Describe the starting of the game
-starting_area = """
-You find yourself in a dark forest.
-The sound of rustling leaves fills the air.
-A faint path lies ahead, leading deeper into the 
-unknown...
-"""
+    # Concatenate Strings to create a personalized message
+    print("Welcome to the Adventure Game, " + player_name + "! Your journey begins here...")
+    return player_name
 
-print(starting_area)
+def describe_area():
+    #Describe the starting of the game
+    print( """
+    You find yourself in a dark forest.
+    The sound of rustling leaves fills the air.
+    A faint path lies ahead, leading deeper into the 
+    unknown...
+    """)
+
+def add_to_inventory(item):
+    inventory.append(item)
+    print("You pickedup a {item}!")
+
+
+
+
+
+player_name = welcome_player()
+describe_area()
+
 
 #start of the game
 while True:
@@ -40,6 +54,7 @@ while True:
     print("1. Take the left path into the dark woods.")
     print("2. Take the right path towards the mountain pass.")
     print("3. Wait and observe.")
+    print("\t Type 'i' to view inventory.")
     # print("string. abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
     # Ask the player for their decission
@@ -47,14 +62,18 @@ while True:
 
     #loop for invalid input
     if decission not in ["1", "2", "3"]:
-        print("Invalid input. Please enter '1', '2', or '3'.")
+        print("Invalid input. Please enter '1', '2', '3'or 'i'.")
             
     # Responde based on the player's decission
+    if decission == "i":
+        print("Inventory", inventory)
+        continue
     if decission == "1":
         print(f"Brave choice, {player_name}! You step onto the path and venture forward.")
         
     elif decission == "2":
         print(f"Bold choice, {player_name}! You take the path towards the mountain pass.")
+        add_to_inventory("map")
         
     elif decission == "3":
         print(f"Patient choice, {player_name}! You wait and observe the surroundings.")
@@ -67,7 +86,7 @@ while True:
 
     #Ask the player if they want to play again
     play_again = input("Do you want to play again? (yes/no)").lower()
-    if play_again != "yes":
+    if play_again != "yes" or "y":
         print("Thank you for playing the Adventure Game!, " + player_name + "!") 
         break #exit the loop and end the game
 
