@@ -8,9 +8,9 @@ This is a text-based adventure game where the player makes choices
 to navigate through a mysterious forest.
 '''
 
-#------------------------
+
 # Player class to store player info and game state
-#------------------------
+
 class Player:
     # initializer - constructor
     def __init__(self, name):
@@ -34,11 +34,9 @@ class Player:
 #       - Print a message  
 #           - “It’s too dark to continue without a lantern.”
 
-#----------------
 # Function: welcome_player
 # Greets the player, asks for their name,
 # and returns the name as a string
-#----------------
 def welcome_player():
     # Welcome message and introduction
     print("Welcome to the Adventure Game!")  
@@ -53,10 +51,8 @@ def welcome_player():
 
     return player
 
-#----------------
 # Function: describe_area
 # Print the opening description of the area
-#----------------
 def describe_area():
     # Describe the starting area
     print( """
@@ -65,28 +61,26 @@ def describe_area():
     A faint path lies ahead, leading deeper into the
     unknown... """)
 
-#----------------
 # Function: add_to_inventory
 # Accepts an item name as a parameter,
 # adds it to the inventory list,
 # and confirm the pickup to the player
-#----------------
 def add_to_inventory(item):
     player.inventory.append(item)
     print(f"You picked up a {item}!")
 
-#-----------------
+
 # Game starts here
 # Call the welcome and describe area functions
-#-----------------
+
 
 player = welcome_player()
 describe_area()
 
-#-----------------
+
 # Main game loop
 # run this until the player quiescent
-#-----------------
+
 
 # Start the game Loop
 while True:
